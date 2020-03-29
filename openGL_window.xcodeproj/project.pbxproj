@@ -7,11 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C573C812431302D00871A1F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C573C802431302D00871A1F /* main.swift */; };
+		9C573C90243133B100871A1F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C573C8F243133B100871A1F /* main.cpp */; };
+		9C573C9B243134B400871A1F /* window_mac_lib.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C573C9A243134B400871A1F /* window_mac_lib.h */; };
+		9C573CA22431359800871A1F /* libwindow_mac_lib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C573C98243134B400871A1F /* libwindow_mac_lib.dylib */; };
+		9C573CA32431359800871A1F /* libwindow_mac_lib.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 9C573C98243134B400871A1F /* libwindow_mac_lib.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		9C573CA7243138B500871A1F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C573C802431302D00871A1F /* main.swift */; };
+		9C573CA924313D2B00871A1F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C573CA824313D2A00871A1F /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9C573CA42431359800871A1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C573C752431302D00871A1F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C573C97243134B400871A1F;
+			remoteInfo = window_mac_lib;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		9C573C7B2431302D00871A1F /* CopyFiles */ = {
+		9C573C8B243133B000871A1F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -20,15 +35,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		9C573CA62431359800871A1F /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9C573CA32431359800871A1F /* libwindow_mac_lib.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9C573C7D2431302D00871A1F /* openGL_window */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = openGL_window; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C573C802431302D00871A1F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		9C573C8D243133B000871A1F /* opengl_window_c */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = opengl_window_c; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C573C8F243133B100871A1F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9C573C98243134B400871A1F /* libwindow_mac_lib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libwindow_mac_lib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C573C9A243134B400871A1F /* window_mac_lib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = window_mac_lib.h; sourceTree = "<group>"; };
+		9C573C9C243134B400871A1F /* window_mac_lib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = window_mac_lib.m; sourceTree = "<group>"; };
+		9C573CA824313D2A00871A1F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9C573C7A2431302D00871A1F /* Frameworks */ = {
+		9C573C8A243133B000871A1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C573CA22431359800871A1F /* libwindow_mac_lib.dylib in Frameworks */,
+				9C573CA924313D2B00871A1F /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C573C96243134B400871A1F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,14 +82,18 @@
 			isa = PBXGroup;
 			children = (
 				9C573C7F2431302D00871A1F /* openGL_window */,
+				9C573C8E243133B000871A1F /* opengl_window_c */,
+				9C573C99243134B400871A1F /* window_mac_lib */,
 				9C573C7E2431302D00871A1F /* Products */,
+				9C573CA12431359800871A1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		9C573C7E2431302D00871A1F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9C573C7D2431302D00871A1F /* openGL_window */,
+				9C573C8D243133B000871A1F /* opengl_window_c */,
+				9C573C98243134B400871A1F /* libwindow_mac_lib.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,25 +106,80 @@
 			path = openGL_window;
 			sourceTree = "<group>";
 		};
+		9C573C8E243133B000871A1F /* opengl_window_c */ = {
+			isa = PBXGroup;
+			children = (
+				9C573C8F243133B100871A1F /* main.cpp */,
+			);
+			path = opengl_window_c;
+			sourceTree = "<group>";
+		};
+		9C573C99243134B400871A1F /* window_mac_lib */ = {
+			isa = PBXGroup;
+			children = (
+				9C573C9A243134B400871A1F /* window_mac_lib.h */,
+				9C573C9C243134B400871A1F /* window_mac_lib.m */,
+			);
+			path = window_mac_lib;
+			sourceTree = "<group>";
+		};
+		9C573CA12431359800871A1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C573CA824313D2A00871A1F /* OpenGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		9C573C94243134B400871A1F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C573C9B243134B400871A1F /* window_mac_lib.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		9C573C7C2431302D00871A1F /* openGL_window */ = {
+		9C573C8C243133B000871A1F /* opengl_window_c */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9C573C842431302D00871A1F /* Build configuration list for PBXNativeTarget "openGL_window" */;
+			buildConfigurationList = 9C573C91243133B100871A1F /* Build configuration list for PBXNativeTarget "opengl_window_c" */;
 			buildPhases = (
-				9C573C792431302D00871A1F /* Sources */,
-				9C573C7A2431302D00871A1F /* Frameworks */,
-				9C573C7B2431302D00871A1F /* CopyFiles */,
+				9C573C89243133B000871A1F /* Sources */,
+				9C573C8A243133B000871A1F /* Frameworks */,
+				9C573C8B243133B000871A1F /* CopyFiles */,
+				9C573CA62431359800871A1F /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C573CA52431359800871A1F /* PBXTargetDependency */,
+			);
+			name = opengl_window_c;
+			productName = opengl_window_c;
+			productReference = 9C573C8D243133B000871A1F /* opengl_window_c */;
+			productType = "com.apple.product-type.tool";
+		};
+		9C573C97243134B400871A1F /* window_mac_lib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C573C9E243134B400871A1F /* Build configuration list for PBXNativeTarget "window_mac_lib" */;
+			buildPhases = (
+				9C573C94243134B400871A1F /* Headers */,
+				9C573C95243134B400871A1F /* Sources */,
+				9C573C96243134B400871A1F /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = openGL_window;
-			productName = openGL_window;
-			productReference = 9C573C7D2431302D00871A1F /* openGL_window */;
-			productType = "com.apple.product-type.tool";
+			name = window_mac_lib;
+			productName = window_mac_lib;
+			productReference = 9C573C98243134B400871A1F /* libwindow_mac_lib.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
 
@@ -92,7 +191,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Michael Kirschner";
 				TargetAttributes = {
-					9C573C7C2431302D00871A1F = {
+					9C573C8C243133B000871A1F = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					9C573C97243134B400871A1F = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
@@ -110,21 +212,38 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9C573C7C2431302D00871A1F /* openGL_window */,
+				9C573C97243134B400871A1F /* window_mac_lib */,
+				9C573C8C243133B000871A1F /* opengl_window_c */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9C573C792431302D00871A1F /* Sources */ = {
+		9C573C89243133B000871A1F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C573C812431302D00871A1F /* main.swift in Sources */,
+				9C573C90243133B100871A1F /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C573C95243134B400871A1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C573CA7243138B500871A1F /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C573CA52431359800871A1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C573C97243134B400871A1F /* window_mac_lib */;
+			targetProxy = 9C573CA42431359800871A1F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9C573C822431302D00871A1F /* Debug */ = {
@@ -240,20 +359,44 @@
 			};
 			name = Release;
 		};
-		9C573C852431302D00871A1F /* Debug */ = {
+		9C573C92243133B100871A1F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9C573C93243133B100871A1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9C573C9F243134B400871A1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		9C573C862431302D00871A1F /* Release */ = {
+		9C573CA0243134B400871A1F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -270,11 +413,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9C573C842431302D00871A1F /* Build configuration list for PBXNativeTarget "openGL_window" */ = {
+		9C573C91243133B100871A1F /* Build configuration list for PBXNativeTarget "opengl_window_c" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9C573C852431302D00871A1F /* Debug */,
-				9C573C862431302D00871A1F /* Release */,
+				9C573C92243133B100871A1F /* Debug */,
+				9C573C93243133B100871A1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C573C9E243134B400871A1F /* Build configuration list for PBXNativeTarget "window_mac_lib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C573C9F243134B400871A1F /* Debug */,
+				9C573CA0243134B400871A1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
