@@ -13,6 +13,10 @@
 		9C573CA32431359800871A1F /* libwindow_mac_lib.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 9C573C98243134B400871A1F /* libwindow_mac_lib.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9C573CA7243138B500871A1F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C573C802431302D00871A1F /* main.swift */; };
 		9C573CA924313D2B00871A1F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C573CA824313D2A00871A1F /* OpenGL.framework */; };
+		9C573CAB2431492100871A1F /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C573CAA2431492100871A1F /* Renderer.swift */; };
+		9C573CAF2431495D00871A1F /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9C573CAE2431495D00871A1F /* shaders.metal */; };
+		9C573CB0243149AB00871A1F /* shaderTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C573CAC2431493800871A1F /* shaderTypes.h */; };
+		9C573CB1243149AE00871A1F /* openGL_window-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C573CAD2431494100871A1F /* openGL_window-Bridging-Header.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,16 @@
 		9C573C9A243134B400871A1F /* window_mac_lib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = window_mac_lib.h; sourceTree = "<group>"; };
 		9C573C9C243134B400871A1F /* window_mac_lib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = window_mac_lib.m; sourceTree = "<group>"; };
 		9C573CA824313D2A00871A1F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		9C573CAA2431492100871A1F /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		9C573CAC2431493800871A1F /* shaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shaderTypes.h; sourceTree = "<group>"; };
+		9C573CAD2431494100871A1F /* openGL_window-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "openGL_window-Bridging-Header.h"; sourceTree = "<group>"; };
+		9C573CAE2431495D00871A1F /* shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
+		9C93115924316EF200029216 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9C93115B24316F1E00029216 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		9C93115C24316F1E00029216 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9CB7E7A42431659A00558782 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		9CB7E7A624316CCC00558782 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = System/Library/Frameworks/AGL.framework; sourceTree = SDKROOT; };
+		9CB7E7A824316DB700558782 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +115,11 @@
 		9C573C7F2431302D00871A1F /* openGL_window */ = {
 			isa = PBXGroup;
 			children = (
+				9C573CAA2431492100871A1F /* Renderer.swift */,
+				9C573CAC2431493800871A1F /* shaderTypes.h */,
 				9C573C802431302D00871A1F /* main.swift */,
+				9C573CAE2431495D00871A1F /* shaders.metal */,
+				9C573CAD2431494100871A1F /* openGL_window-Bridging-Header.h */,
 			);
 			path = openGL_window;
 			sourceTree = "<group>";
@@ -126,6 +144,12 @@
 		9C573CA12431359800871A1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9C93115B24316F1E00029216 /* Quartz.framework */,
+				9C93115C24316F1E00029216 /* QuartzCore.framework */,
+				9C93115924316EF200029216 /* CoreGraphics.framework */,
+				9CB7E7A824316DB700558782 /* Cocoa.framework */,
+				9CB7E7A624316CCC00558782 /* AGL.framework */,
+				9CB7E7A42431659A00558782 /* GLUT.framework */,
 				9C573CA824313D2A00871A1F /* OpenGL.framework */,
 			);
 			name = Frameworks;
@@ -138,6 +162,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C573CB1243149AE00871A1F /* openGL_window-Bridging-Header.h in Headers */,
+				9C573CB0243149AB00871A1F /* shaderTypes.h in Headers */,
 				9C573C9B243134B400871A1F /* window_mac_lib.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,7 +257,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C573CAB2431492100871A1F /* Renderer.swift in Sources */,
 				9C573CA7243138B500871A1F /* main.swift in Sources */,
+				9C573CAF2431495D00871A1F /* shaders.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +412,8 @@
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "openGL_window/openGL_window-Bridging-Header.h";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -397,6 +427,8 @@
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "openGL_window/openGL_window-Bridging-Header.h";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
