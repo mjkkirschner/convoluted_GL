@@ -19,9 +19,8 @@
 #define GL_SILENCE_DEPRECATION
 
 // only "extern" when targeting C.
-extern "C" int start_render_view(int width,int height);
+extern "C" int start_render_view(int width,int height,void (*renderfunc)(void));
 
-//TODO this apparently takes a unit8?...odd..guess each color channel.. so we need a bigger array.
 extern "C" void update_tex(uint8_t* data);
 
 
@@ -124,16 +123,14 @@ void render(uint8_t* outputbuffer,unsigned int framebuffer) {
     int error;
 
     // bind to framebuffer and draw scene as we normally would to color texture
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+  glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
   glViewport(0, 0, 800, 800);
-    error = glGetError();
-    glClearColor(0, 0, 1.0, 1.0);
-      glClear(GL_COLOR_BUFFER_BIT);
-error = glGetError();
+  glClearColor(0, 0, 1.0, 1.0);
+  glClear(GL_COLOR_BUFFER_BIT);
 
   glUseProgram(program);
- error = glGetError();
     
+    // a test tri
    float vertices[] = {
         -0.5f, -0.5f, 0.0f,
          0.5f, -0.5f, 0.1f,
@@ -142,45 +139,29 @@ error = glGetError();
     
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
-     error = glGetError();
        glGenBuffers(1, &VBO);
-     error = glGetError();
        // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
     glBindVertexArray(VAO);
-     error = glGetError();
        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-     error = glGetError();
        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-     error = glGetError();
        glEnableVertexAttribArray(0);
-     error = glGetError();
        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-         error = glGetError();
     /* Push each element in buffer_vertices to the vertex shader */
     glDrawArrays(GL_TRIANGLES,0, 3);
-     error = glGetError();
     glDisableVertexAttribArray(0);
-     error = glGetError();
   
-    error = glGetError();
     glBindFramebuffer(GL_READ_FRAMEBUFFER,framebuffer);
     
-    error = glGetError();
     glReadPixels(0, 0, 800, 800, GL_RGBA, GL_UNSIGNED_BYTE, outputbuffer);
-    error = glGetError();
     glFinish();
-    error = glGetError();
 }
 
 void free_resources() {
     glDeleteProgram(program);
 }
 
-void task(uint8_t* buffer){
-    //wait a while... until the window is open
-    //so that calling updateTex actually effects the renderer.
-    usleep(10000000);
-    
+
+void start_openGL_headless(){
     //windowless opengl context:
       //http://renderingpipeline.com/2012/05/windowless-opengl-on-macos-x/
     
@@ -204,25 +185,30 @@ void task(uint8_t* buffer){
     
      errorCode = CGLSetCurrentContext( context );
      // add error checking here
+    
      std::cout << std::endl <<  glGetString(GL_VERSION) << std::endl;
-     std::cout << std::endl << "called from cpp" << std::endl;
     
     init_resources();
-    std::cout << std::endl << "render" << std::endl;
+    std::cout << std::endl << "all opengl resources loaded, opengl context started" << std::endl;
+}
+
+void renderTask(){
     render(imageBufffer, framebuffer);
     std::cout << std::endl << "updateTex" << std::endl;
-    update_tex(buffer);
+    update_tex(imageBufffer);
+}
+
+void static renderTask2(){
+    std::cout << std::endl << "rendertask2" << std::endl;
 }
 
 int main(int argc, char **argv) {
    
-  
+    start_openGL_headless();
     
-    //do all rendering on a different thread.
-    std::thread t1(task, imageBufffer);
     //start main window on main thread. - this is blocking.
-    int window = start_render_view(800,800);
-        
+    int window = start_render_view(800,800,renderTask);
+    
     return 0;
 }
 

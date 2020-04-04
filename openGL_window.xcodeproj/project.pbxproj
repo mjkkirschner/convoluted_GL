@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9C573C90243133B100871A1F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C573C8F243133B100871A1F /* main.cpp */; };
-		9C573C9B243134B400871A1F /* window_mac_lib.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C573C9A243134B400871A1F /* window_mac_lib.h */; };
 		9C573CA22431359800871A1F /* libwindow_mac_lib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C573C98243134B400871A1F /* libwindow_mac_lib.dylib */; };
 		9C573CA32431359800871A1F /* libwindow_mac_lib.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 9C573C98243134B400871A1F /* libwindow_mac_lib.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9C573CA7243138B500871A1F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C573C802431302D00871A1F /* main.swift */; };
@@ -57,8 +56,6 @@
 		9C573C8D243133B000871A1F /* opengl_window_c */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = opengl_window_c; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C573C8F243133B100871A1F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9C573C98243134B400871A1F /* libwindow_mac_lib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libwindow_mac_lib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C573C9A243134B400871A1F /* window_mac_lib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = window_mac_lib.h; sourceTree = "<group>"; };
-		9C573C9C243134B400871A1F /* window_mac_lib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = window_mac_lib.m; sourceTree = "<group>"; };
 		9C573CA824313D2A00871A1F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		9C573CAA2431492100871A1F /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		9C573CAC2431493800871A1F /* shaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shaderTypes.h; sourceTree = "<group>"; };
@@ -97,7 +94,6 @@
 			children = (
 				9C573C7F2431302D00871A1F /* openGL_window */,
 				9C573C8E243133B000871A1F /* opengl_window_c */,
-				9C573C99243134B400871A1F /* window_mac_lib */,
 				9C573C7E2431302D00871A1F /* Products */,
 				9C573CA12431359800871A1F /* Frameworks */,
 			);
@@ -132,15 +128,6 @@
 			path = opengl_window_c;
 			sourceTree = "<group>";
 		};
-		9C573C99243134B400871A1F /* window_mac_lib */ = {
-			isa = PBXGroup;
-			children = (
-				9C573C9A243134B400871A1F /* window_mac_lib.h */,
-				9C573C9C243134B400871A1F /* window_mac_lib.m */,
-			);
-			path = window_mac_lib;
-			sourceTree = "<group>";
-		};
 		9C573CA12431359800871A1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +151,6 @@
 			files = (
 				9C573CB1243149AE00871A1F /* openGL_window-Bridging-Header.h in Headers */,
 				9C573CB0243149AB00871A1F /* shaderTypes.h in Headers */,
-				9C573C9B243134B400871A1F /* window_mac_lib.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +305,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -373,6 +360,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
